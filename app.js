@@ -17,7 +17,7 @@ function updateMobileNumber(isIncrement){
   };
 }
 
-// calling updated mobile number and price 
+// calling updated mobile number and price;
 document.getElementById("mobile-plus-btn").addEventListener("click", ()=>{
   updateMobileNumber(true);
 })
@@ -26,17 +26,23 @@ document.getElementById("mobile-minus-btn").addEventListener("click", ()=>{
   updateMobileNumber(false);
 })
 
-// get cover pluse button
+// get cover pluse button;
 document.getElementById("cover-plus-btn").addEventListener("click", ()=>{
     const coverInpute=document.getElementById("cover-number");
     const coverNumber=parseInt(coverInpute.value);
-    coverInpute.value=coverNumber+1;
+    const updatedCoverNumber=coverInpute.value=coverNumber+1;
+
+    const coverPrice=document.getElementById("cover-price")
+    coverPrice.innerText =updatedCoverNumber *59;
     
 });
-// get cover minus button
+// get cover minus button;
 document.getElementById("cover-minus-btn").addEventListener("click", ()=>{
   const coverInpute=document.getElementById("cover-number");
   const coverNumber=parseInt(coverInpute.value);
   coverInpute.value=coverNumber-1;
-  
+
+  const coverPrice=document.getElementById("cover-price")
+  const updatedCoverPrice=coverPrice.innerText;
+  coverPrice.innerText =updatedCoverPrice -59;
 })

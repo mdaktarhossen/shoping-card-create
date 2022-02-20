@@ -1,48 +1,37 @@
-function updateMobileNumber(isIncrement){
-  const getInpute=document.getElementById("mobile-number");
+function updateMobileNumber(prodictName,price,isIncrement){
+  const getInpute=document.getElementById(prodictName+"-number");
   const getNumber=parseInt(getInpute.value);
-  // return getNumber;
 
   if(isIncrement){
     const mobileNumber=getInpute.value=getNumber+1;
-
-    const mobilePrice=document.getElementById("mobile-price");
-    mobilePrice.innerText=mobileNumber*1219;
+    const mobilePrice=document.getElementById(prodictName+"-price");
+    mobilePrice.innerText=mobileNumber*price;
   }
+  
   else if(getNumber>0){
     const mobileNumber= getInpute.value=getNumber-1;
-
-    const mobilePrice=document.getElementById("mobile-price")
-    mobilePrice.innerText=parseInt(mobilePrice.innerText)-1219;
+    const mobilePrice=document.getElementById(prodictName+"-price")
+    mobilePrice.innerText=parseInt(mobilePrice.innerText)-price;
   };
-}
+};
 
 // calling updated mobile number and price;
+// get mobile plus btn
 document.getElementById("mobile-plus-btn").addEventListener("click", ()=>{
-  updateMobileNumber(true);
+  updateMobileNumber("mobile",1219,true);
 })
 
+// get mobile minus btn;
 document.getElementById("mobile-minus-btn").addEventListener("click", ()=>{
-  updateMobileNumber(false);
-})
+  updateMobileNumber("mobile",1219,false);
+});
 
 // get cover pluse button;
 document.getElementById("cover-plus-btn").addEventListener("click", ()=>{
-    const coverInpute=document.getElementById("cover-number");
-    const coverNumber=parseInt(coverInpute.value);
-    const updatedCoverNumber=coverInpute.value=coverNumber+1;
-
-    const coverPrice=document.getElementById("cover-price")
-    coverPrice.innerText =updatedCoverNumber *59;
-    
+updateMobileNumber( "cover",59,true)
 });
+
 // get cover minus button;
 document.getElementById("cover-minus-btn").addEventListener("click", ()=>{
-  const coverInpute=document.getElementById("cover-number");
-  const coverNumber=parseInt(coverInpute.value);
-  coverInpute.value=coverNumber-1;
-
-  const coverPrice=document.getElementById("cover-price")
-  const updatedCoverPrice=coverPrice.innerText;
-  coverPrice.innerText =updatedCoverPrice -59;
+  updateMobileNumber( "cover",59,false)
 })
